@@ -2,16 +2,16 @@ package Akdeniz_Missing;
 
 public class Missing {
 
-    public boolean compareValue(int s,int a){
+    private boolean compareValue(int s,int a){
         return s == a;
     }
 
-    public static void swap(int[] arr,int i, int j){
+    private static void swap(int[] arr,int i, int j){
         int temp = arr[i];
         arr[i] = j;
         arr[j] = temp;
     }
-    public static int partition(int[] arr, int high, int low){
+    private static int partition(int[] arr, int low, int high){
         int pivot = arr[high];
         int i = low - 1;
         for (int j = low; j <high - 1 ; j++) {
@@ -23,6 +23,11 @@ public class Missing {
         swap(arr,i+1,high);
         return i+1;
     }
+
+    public void MissingElement(int[] arr,int low,int high){
+        int i = partition(arr,low,high);
+    }
+
     public static void writeMissing(String missing){
         System.out.println(missing);
     }

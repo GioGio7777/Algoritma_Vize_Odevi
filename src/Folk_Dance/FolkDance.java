@@ -55,8 +55,14 @@ public class FolkDance {
     }
 
     public static void writeArray(int[] sortedArray){
+        int i = 1;
         for (int value:sortedArray) {
-            System.out.print(value+",");
+            if(i != sortedArray.length){
+                System.out.print(value+",");
+            }else{
+                System.out.print(value);
+            }
+            i++;
         }
 
     }
