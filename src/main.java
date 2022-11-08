@@ -1,3 +1,4 @@
+import Akdeniz_Missing.Missing;
 import Folk_Dance.FolkDance;
 import Generate_Array.Generate;
 
@@ -6,10 +7,12 @@ public class main {
         int[] array = {3,0,1,8,7,2,5,4,9,6};
         int[] array2 =Generate.generateArray(3);
 
-        System.out.println("\n"+FolkSortHw2(array2)/1000000 + "ms");
+        //System.out.println("\n"+FolkSortHw2(array2)/1000000 + "ms");
+        int [] newArray = {12,7,10,4,5,3,11,1,6,8,2};
 
+        Missing.MissingElement(newArray,0, newArray.length-1);
 
-        int [] newArray = {12,7,10,9,5,4,11,1,6,8,2};
+        FolkDance.writeArray(newArray);
     }
 
     public static void MissingHw1(int[] arr){

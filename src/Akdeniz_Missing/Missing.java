@@ -8,12 +8,12 @@ public class Missing {
 
     private static void swap(int[] arr,int i, int j){
         int temp = arr[i];
-        arr[i] = j;
+        arr[i] = arr[j];
         arr[j] = temp;
     }
     private static int partition(int[] arr, int low, int high){
         int pivot = arr[high];
-        int i = low - 1;
+        int i = low-1;
         for (int j = low; j <high - 1 ; j++) {
             if(arr[j] <= pivot){
                 i = i + 1;
@@ -24,11 +24,27 @@ public class Missing {
         return i+1;
     }
 
-    public void MissingElement(int[] arr,int low,int high){
-        int i = partition(arr,low,high);
+    public static void MissingElement(int[] arr,int low,int high){
+
+
+        if(low<high) {
+            int i = partition(arr, low, high);
+            MissingElement(arr, i+1, high);
+        }else {
+            for (int i = 0; i <arr.length+1 ; i++) {
+                if(arr[i]-arr[i+1] >1){
+                    System.out.println(i+2);
+                    break;
+                }
+            }
+
+        }
     }
 
-    public static void writeMissing(String missing){
+
+
+
+    public static void writeMissing(int missing){
         System.out.println(missing);
     }
 }
