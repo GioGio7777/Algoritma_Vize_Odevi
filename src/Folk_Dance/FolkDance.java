@@ -16,7 +16,7 @@ public class FolkDance {
 
         for (int i = 0; i <(high - low); i++) {
             if(x == 0){
-                if(arr[pivot]>arr[indexer]){
+                if(arr[pivot]>=arr[indexer]){
                     swapArray(arr,pivot,indexer);
                     int temp = pivot;
                     pivot = indexer;
