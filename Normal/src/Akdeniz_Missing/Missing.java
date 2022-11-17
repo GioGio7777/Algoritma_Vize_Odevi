@@ -2,8 +2,17 @@ package Akdeniz_Missing;
 
 public class Missing {
 
-    private boolean compareValue(int s,int a){
-        return s == a;
+
+    public static void smallest(int[] arr){
+        int small = arr[0];
+        int index = 0;
+        for (int i = 1; i < arr.length - 1 ; i++) {
+            if (arr[i] < small) {
+                small = arr[i];
+                index = i;
+            }
+        }
+            swap(arr,index,arr.length - 1);
     }
 
     private static void swap(int[] arr,int i, int j){
@@ -13,32 +22,28 @@ public class Missing {
     }
     private static int partition(int[] arr, int low, int high){
         int pivot = arr[high];
-        int i = low-1;
-        for (int j = low; j <high - 1 ; j++) {
-            if(arr[j] <= pivot){
-                i = i + 1;
-                swap(arr,i,j);
+        int value = high;
+        int j = 0;
+        for (j = low; j <high - 1 ; j++) {
+            if(arr[j] - pivot == 1){
+                swap(arr,high - 1,j);
+                value--;
+                break;
             }
         }
-        swap(arr,i+1,high);
-        return i+1;
+        return value;
     }
 
-    public static void MissingElement(int[] arr,int low,int high){
-
-
-        if(low<high) {
-            int i = partition(arr, low, high);
-            MissingElement(arr, i+1, high);
-        }else {
-            for (int i = 0; i <arr.length+1 ; i++) {
-                if(arr[i]-arr[i+1] >1){
-                    System.out.println(i+2);
-                    break;
-                }
-            }
+    public static void MissingElement(int[] arr,int low,int high,int pivot){
+        if(low < high){
+            int index = partition(arr,low,high);
+            if(pivot != index){
+                MissingElement(arr,low,index,index);
+            }else System.out.println("Missing element is:" + (arr[index] + 1));
 
         }
+
+
     }
 
 
