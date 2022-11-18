@@ -34,22 +34,14 @@ public class Missing {
         return value;
     }
 
-    public static void MissingElement(int[] arr,int low,int high,int pivot){
+    public static void MissingElement(int[] arr,int low,int high,int pivot,int i){
         if(low < high){
             int index = partition(arr,low,high);
             if(pivot != index){
-                MissingElement(arr,low,index,index);
+                System.out.println(i);
+                MissingElement(arr,low,index,index,i+1);
             }else System.out.println("Missing element is:" + (arr[index] + 1));
 
         }
-
-
-    }
-
-
-
-
-    public static void writeMissing(int missing){
-        System.out.println(missing);
     }
 }
